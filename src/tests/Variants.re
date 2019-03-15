@@ -23,7 +23,9 @@ let anOffice: office = Trondheim;
 
 let manager = office =>
   switch (office) {
+  | Trondheim => "Camilla"
   | Oslo => "Abid"
+  | Bergen => "Frode"
   };
 
 let maybeOne = None;
@@ -39,19 +41,17 @@ let tests = [
       };
     assertEqual(
       address,
-      __string__,
+      "Bassengbakken 4",
       "We can access a variants value with the switch expression.",
     );
   },
-  {
-    assertEqual(
-      try (manager(Trondheim)) {
-      | _ => ""
-      },
-      "Camilla",
-      "The compiler will warn us if we have not covered all possible options.\n\nOpen the terminal window where you have `yarn start` running, and notice the warning that says \"You forgot to handle a possible value here\". \n\nFix this and the next test by adding the missing values to the `manager` function on line 24.",
-    );
-  },
+  assertEqual(
+    try (manager(Trondheim)) {
+    | _ => ""
+    },
+    "Camilla",
+    "The compiler will warn us if we have not covered all possible options.\n\nOpen the terminal window where you have `yarn start` running, and notice the warning that says \"You forgot to handle a possible value here\". \n\nFix this and the next test by adding the missing values to the `manager` function on line 24.",
+  ),
   assertEqual(
     try (manager(Bergen)) {
     | _ => ""
@@ -67,7 +67,7 @@ let tests = [
       };
     assertEqual(
       compiledLanguage(Reason),
-      __bool__,
+      true,
       "An underscore will match any value.",
     );
   },
@@ -78,7 +78,7 @@ let tests = [
       | Number(x) => x
       | _ => 0
       },
-      __int__,
+      1,
       "A variant's constructors can hold extra data. Access that data with pattern matching in the switch expression.",
     );
   },
@@ -92,26 +92,24 @@ let tests = [
       };
     assertEqual(
       evaluate(anExpression),
-      __int__,
+      14,
       "A variant's extra data can be of the same type as the variant itself.",
     );
   },
-  {
-    assertEqual(
-      switch (maybeOne) {
-      | None => (-1)
-      | Some(x) => x
-      },
-      __int__,
-      "The option type from the standard library is a variant.",
-    );
-  },
+  assertEqual(
+    switch (maybeOne) {
+    | None => (-1)
+    | Some(x) => x
+    },
+    -1,
+    "The option type from the standard library is a variant.",
+  ),
   assertEqual(
     switch (maybeTwo) {
     | None => 0
     | Some(x) => x
     },
-    __int__,
+    2,
     "It is accessed with a switch expression, just like other variants.",
   ),
   {
@@ -123,7 +121,7 @@ let tests = [
       };
     assertEqual(
       length(myList),
-      __int__,
+      3,
       "A list is also a variant, hidden behind some syntactic sugar. It is either the empty list ([]), or a head and a tail.",
     );
   },
@@ -136,7 +134,7 @@ let tests = [
       };
     assertEqual(
       isEmpty(myString),
-      ___bool___,
+      false,
       "A string can be treated like a variant. It is either empty, or not empty.",
     );
   },
