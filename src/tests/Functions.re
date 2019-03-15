@@ -7,7 +7,7 @@ type tree('a) =
   | Node('a, tree('a), tree('a))
   | Leaf('a);
 
-let add = (a, b) => 0;
+let add = (a, b) => a + b;
 let add3 = (a, b, c) => a + b + c;
 let sub = (~x, ~y) => x - y;
 
@@ -16,7 +16,7 @@ let tests = [
     let greet = name => "Hello, " ++ name ++ "!";
     assertEqual(
       greet("Booster"),
-      __string__,
+      "Hello, Booster!",
       "A function is declared with a fat arrow (=>), and returns the value of the expression to the right of the arrow.",
     );
   },
@@ -27,7 +27,7 @@ let tests = [
   ),
   assertEqual(
     add3(4, 5, 6),
-    __int__,
+    15,
     "Multiple arguments are separated by commas.",
   ),
   {
@@ -37,18 +37,14 @@ let tests = [
     };
     assertEqual(
       reverseName(("Bernie", "Sanders")),
-      __string__,
+      "Sanders, Bernie",
       "Longer function bodies require curly braces.",
     );
   },
-  assertEqual(
-    sub(~x=10, ~y=7),
-    __int__,
-    "Functions can have labelled arguments.",
-  ),
+  assertEqual(sub(~x=10, ~y=7), 3, "Functions can have labelled arguments."),
   assertEqual(
     sub(~y=7, ~x=10),
-    __int__,
+    3,
     "Labelled arguments can be applied in any order.",
   ),
   {
@@ -56,7 +52,7 @@ let tests = [
     let add5 = add(5);
     assertEqual(
       add5(6),
-      __int__,
+      11,
       "Functions are curried, and can be partially applied.",
     );
   },
@@ -69,7 +65,7 @@ let tests = [
       };
     assertEqual(
       treeSum(myTree),
-      __int__,
+      15,
       "A recursive function must be declared with `let rec`.",
     );
   },
