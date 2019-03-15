@@ -13,19 +13,19 @@ let tests = [
     let score = 10;
     assertEquals(
       score,
-      __int__,
+      10,
       "Types in Reason are inferred. Reason knows that `score` is an `int`.",
     );
   },
   {
     let anotherScore: int = 20;
-    assertEquals(anotherScore, __int__, "Types can be explicit.");
+    assertEquals(anotherScore, 20, "Types can be explicit.");
   },
   {
     let totalScore = (10: int) + (20: int);
     assertEquals(
       totalScore,
-      __int__,
+      30,
       "Any expression can be wrapped in parentheses and annotated with types.",
     );
   },
@@ -33,7 +33,7 @@ let tests = [
     let add = (a: int, b: int): int => a + b;
     assertEquals(
       add(10, 20),
-      __int__,
+      30,
       "Functions can be annotated, both arguments and return type.",
     );
   },

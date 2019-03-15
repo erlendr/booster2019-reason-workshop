@@ -6,7 +6,7 @@ let tests = [
     let aTuple: (int, string) = (1, "two");
     assertEqual(
       aTuple,
-      __tuple__,
+      (1, "two"),
       "A tuple is an immutable, ordered, fix-sized, and heterogenous collection.",
     );
   },
@@ -15,7 +15,7 @@ let tests = [
 
     assertEqual(
       fst(aTuple),
-      __int__,
+      1,
       "You can access the first element in a tuple with `fst`.",
     );
   },
@@ -24,7 +24,7 @@ let tests = [
 
     assertEqual(
       snd(aTuple),
-      __string__,
+      "two",
       "You can access the second element in a tuple with `snd`.",
     );
   },
@@ -33,7 +33,7 @@ let tests = [
     let (number, _, _, _) = anotherTuple;
     assertEqual(
       number,
-      __int__,
+      1,
       "Elements in larger tuples are accessed by destructuring.",
     );
   },
