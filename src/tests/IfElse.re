@@ -8,7 +8,7 @@ let tests = [
     let x = if (flag) {"turn feature on"} else {"turn feature off"};
     assertEqual(
       x,
-      __string__,
+      "turn feature on",
       "If-else in Reason are expressions. They are evaluated to their body's content.",
     );
   },
@@ -25,7 +25,7 @@ let tests = [
      }, */
   assertEqual(
     1 == 1 ? "one" : "not one",
-    __string__,
+    "one",
     "Ternary expressions are syntactical sugar for if-else expressions.",
   ),
 ];
