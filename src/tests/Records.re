@@ -18,26 +18,26 @@ let morty: person = {age: 14, name: "Morty Smith"};
 let tests = [
   assertEqual(
     morty,
-    {age: __int__, name: __string__},
+    {age: 14, name: "Morty Smith"},
     "A record is like a tuple, but with named fields.",
   ),
   assertEqual(
     morty.age,
-    __int__,
+    14,
     "You can access a records fields with dot notation.",
   ),
   {
     let olderPerson: person = {...morty, age: morty.age + 1};
     assertEqual(
       olderPerson,
-      {age: __int__, name: __string__},
+      {age: 15, name: "Morty Smith"},
       "Immutable updates. A new
     record is created from the old one with the ... operator.",
     );
   },
   assertEqual(
     morty,
-    {age: __int__, name: __string__},
+    {age: 14, name: "Morty Smith"},
     "The old record is unchanged.",
   ),
   {
@@ -45,7 +45,7 @@ let tests = [
     rick.age = rick.age + 1;
     assertEqual(
       rick.age,
-      __int__,
+      71,
       "A record field can optionally be made mutable.",
     );
   },
@@ -54,7 +54,7 @@ let tests = [
     let c137: person = {age: 70, name};
     assertEqual(
       c137,
-      {age: 70, name: __string__},
+      {age: 70, name},
       "\"Punning\" is a syntax shorthand you
     can use when the name of the field matches the name of the value.",
     );
