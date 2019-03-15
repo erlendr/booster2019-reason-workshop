@@ -8,7 +8,7 @@ let tests = [
     let company = "Kantega";
     assertEquals(
       company,
-      __string__,
+      "Kantega",
       "A let binding binds a value to a name.",
     );
   },
@@ -16,7 +16,7 @@ let tests = [
     let city: string = "Bergen";
     assertEquals(
       city,
-      __string__,
+      "Bergen",
       "A let binding can have an optional type annotation.",
     );
   },
@@ -26,7 +26,7 @@ let tests = [
     let message = "bye!";
     assertEquals(
       message,
-      __string__,
+      "bye!",
       "Bindings are immutable, but can be shadowed by a later binding with the same name.",
     );
   },
@@ -38,7 +38,7 @@ let tests = [
     };
     assertEquals(
       city,
-      __string__,
+      "Bergen",
       "Bindings can be scoped through {}. Bindings are not visible outside their scope.",
     );
   },
@@ -50,7 +50,7 @@ let tests = [
     };
     assertEquals(
       greeting,
-      __string__,
+      "Hey Kantega!",
       "{} are expressions, and can be used to create anonymous scopes.",
     );
   },

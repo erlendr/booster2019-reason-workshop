@@ -20,6 +20,6 @@ let assertEqual = (a, b, message) =>
    this file, move on to Basics.re. */
 
 let tests = [
-  assertEqual(true, __bool__, "true should be true"),
-  assertEqual(false, ___bool___, "false should be false"),
+  assertEqual(true, true, "true should be true"),
+  assertEqual(false, false, "false should be false"),
 ];
